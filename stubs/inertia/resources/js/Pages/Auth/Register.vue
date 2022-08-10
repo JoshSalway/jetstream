@@ -2,7 +2,7 @@
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
 import AuthenticationCard from '@/Components/AuthenticationCard.vue';
 import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
-import Button from '@/Components/Button.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
 import Input from '@/Components/Input.vue';
 import Checkbox from '@/Components/Checkbox.vue';
 import Label from '@/Components/Label.vue';
@@ -99,9 +99,9 @@ const submit = () => {
                     Already registered?
                 </Link>
 
-                <Button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Register
-                </Button>
+                </PrimaryButton>
             </div>
         </form>
     </AuthenticationCard>
