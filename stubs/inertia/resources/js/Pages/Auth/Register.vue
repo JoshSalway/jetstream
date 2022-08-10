@@ -1,12 +1,12 @@
 <script setup>
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
-import JetAuthenticationCard from '@/Components/AuthenticationCard.vue';
-import JetAuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
-import JetButton from '@/Components/Button.vue';
-import JetInput from '@/Components/Input.vue';
-import JetCheckbox from '@/Components/Checkbox.vue';
-import JetLabel from '@/Components/Label.vue';
-import JetValidationErrors from '@/Components/ValidationErrors.vue';
+import AuthenticationCard from '@/Components/AuthenticationCard.vue';
+import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
+import Button from '@/Components/Button.vue';
+import Input from '@/Components/Input.vue';
+import Checkbox from '@/Components/Checkbox.vue';
+import Label from '@/Components/Label.vue';
+import ValidationErrors from '@/Components/ValidationErrors.vue';
 
 const form = useForm({
     name: '',
@@ -26,17 +26,17 @@ const submit = () => {
 <template>
     <Head title="Register" />
 
-    <JetAuthenticationCard>
+    <AuthenticationCard>
         <template #logo>
-            <JetAuthenticationCardLogo />
+            <AuthenticationCardLogo />
         </template>
 
-        <JetValidationErrors class="mb-4" />
+        <ValidationErrors class="mb-4" />
 
         <form @submit.prevent="submit">
             <div>
-                <JetLabel for="name" value="Name" />
-                <JetInput
+                <Label for="name" value="Name" />
+                <Input
                     id="name"
                     v-model="form.name"
                     type="text"
@@ -48,8 +48,8 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <JetLabel for="email" value="Email" />
-                <JetInput
+                <Label for="email" value="Email" />
+                <Input
                     id="email"
                     v-model="form.email"
                     type="email"
@@ -59,8 +59,8 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <JetLabel for="password" value="Password" />
-                <JetInput
+                <Label for="password" value="Password" />
+                <Input
                     id="password"
                     v-model="form.password"
                     type="password"
@@ -71,8 +71,8 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <JetLabel for="password_confirmation" value="Confirm Password" />
-                <JetInput
+                <Label for="password_confirmation" value="Confirm Password" />
+                <Input
                     id="password_confirmation"
                     v-model="form.password_confirmation"
                     type="password"
@@ -83,15 +83,15 @@ const submit = () => {
             </div>
 
             <div v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature" class="mt-4">
-                <JetLabel for="terms">
+                <Label for="terms">
                     <div class="flex items-center">
-                        <JetCheckbox id="terms" v-model:checked="form.terms" name="terms" />
+                        <Checkbox id="terms" v-model:checked="form.terms" name="terms" />
 
                         <div class="ml-2">
                             I agree to the <a target="_blank" :href="route('terms.show')" class="underline text-sm text-gray-600 hover:text-gray-900">Terms of Service</a> and <a target="_blank" :href="route('policy.show')" class="underline text-sm text-gray-600 hover:text-gray-900">Privacy Policy</a>
                         </div>
                     </div>
-                </JetLabel>
+                </Label>
             </div>
 
             <div class="flex items-center justify-end mt-4">
@@ -99,10 +99,10 @@ const submit = () => {
                     Already registered?
                 </Link>
 
-                <JetButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <Button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Register
-                </JetButton>
+                </Button>
             </div>
         </form>
-    </JetAuthenticationCard>
+    </AuthenticationCard>
 </template>
